@@ -22,6 +22,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initViews();
         getDateFromSharedPref();
+    }
+
+    private void initViews() {
+        mInputNote = findViewById(R.id.inputNote);
+        mBtnSaveNote = findViewById(R.id.btnSaveNote);
+
+        myNoteSharedPref = getSharedPreferences("MyNote", MODE_PRIVATE);
+
+        mBtnSaveNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         mBtnSaveNote.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,18 +47,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "данные сохранены", Toast.LENGTH_LONG).show();
             }
         });
-    }
 
-    private void initViews() {
-        mInputNote = findViewById(R.id.inputNote);
-        mBtnSaveNote = findViewById(R.id.btnSaveNote);
 
-        mBtnSaveNote.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
+
     }
 
     private void getDateFromSharedPref(){
